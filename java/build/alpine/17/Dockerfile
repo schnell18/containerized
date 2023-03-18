@@ -1,4 +1,5 @@
-FROM docker.io/schnell18/java-runtime-jdk:17.0.3-17.34.19-2-alpine
+ARG JDK_RUNTIME_IMG_TAG
+FROM quay.io/schnell18/java-runtime-jdk:${JDK_RUNTIME_IMG_TAG}
 LABEL MAINTAINER Justin Zhang "schnell18@gmail.com"
 
 ARG MAVEN_VERSION=3.8.5
@@ -18,7 +19,7 @@ RUN set -eux && \
     mkdir -p ~/.ssh && chmod 700 ~/.ssh && \
     echo "StrictHostKeyChecking no " > ~/.ssh/config && \
     curl -L ${BASE_URL}/apache-maven-${MAVEN_VERSION}-bin.tar.gz -o maven-${MAVEN_VERSION}.tgz && \
-    echo "${CHECKSUM}  maven-${MAVEN_VERSION}.tgz" | sha512sum -c - && \
+    echo "${CHECKSUM} maven-${MAVEN_VERSION}.tgz" | sha512sum -c - && \
     tar -xzvf maven-${MAVEN_VERSION}.tgz && \
 	mv apache-maven-$MAVEN_VERSION/* . && \
 	rmdir apache-maven-$MAVEN_VERSION && \

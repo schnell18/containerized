@@ -1,11 +1,10 @@
-ZOOKEEPER_VERSION=3.8.0
-REV=1
-
+GOLANG_VERSION=1.19
+REV=2
 
 REGISTRY=docker.io
 USER=schnell18
-IMAGE_NAME=zookeeper
-IMAGE_TAG=${ZOOKEEPER_VERSION}-${REV}-alpine
+IMAGE_NAME=golang-build
+IMAGE_TAG=${GOLANG_VERSION}-${REV}-alpine
 MANIFEST=${IMAGE_NAME}
 
 # remove local manifest from previous build so that
@@ -20,7 +19,6 @@ podman build \
     --jobs 2 \
     --platform linux/amd64,linux/arm64/v8 \
     --manifest ${MANIFEST} \
-    --build-arg ZOOKEEPER_VERSION=${ZOOKEEPER_VERSION} \
     --tag $REGISTRY/$USER/$IMAGE_NAME:$IMAGE_TAG \
     .
 
