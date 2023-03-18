@@ -1,4 +1,3 @@
-# Trigger CI build
 FROM sharelatex/sharelatex:3.5.3
 LABEL MAINTAINER Justin Zhang "schnell18@gmail.com"
 
