@@ -42,6 +42,7 @@ jobs:
         id: build-and-push
         uses: docker/build-push-action@v3
         with:
+          context: sharelatex
           platforms: linux/amd64
           push: true
           tags: quay.io/schnell18/sharelatex:${{ steps.image_tags.outputs.IMAGE_TAGS }}
