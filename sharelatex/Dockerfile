@@ -1,4 +1,4 @@
-FROM sharelatex/sharelatex:3.5.3
+FROM sharelatex/sharelatex:3.3.2
 LABEL MAINTAINER Justin Zhang "schnell18@gmail.com"
 
 SHELL ["/bin/bash", "-cx"]
