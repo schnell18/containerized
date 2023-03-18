@@ -1,4 +1,3 @@
-# Trigger CI build
 FROM sharelatex/sharelatex:3.5.3
 LABEL MAINTAINER Justin Zhang "schnell18@gmail.com"
 
@@ -12,7 +11,7 @@ SHELL ["/bin/bash", "-cx"]
 #     && tlmgr update --all \
 #     && tlmgr install scheme-full
 
-# update tlmgr itself
+# update tlmgr texlive-scripts and install all packages
 RUN tlmgr update texlive-scripts && \
     tlmgr update --all           && \
     tlmgr install scheme-full
