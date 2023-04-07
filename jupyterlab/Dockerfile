@@ -8,7 +8,11 @@ COPY serverapp.py /opt/conda/lib/python3.10/site-packages/jupyter_server/servera
 
 USER root
 
-RUN apt-get update --yes && \
-    apt-get install --yes --no-install-recommends curl iputils-ping libmysqlclient-dev python-dev
+RUN apt-get update --yes &&                       \
+    apt-get install --yes --no-install-recommends \
+    curl                                          \
+    iputils-ping                                  \
+    libmysqlclient-dev                            \
+    python-dev-is-python3
 
 USER ${NB_UID}
