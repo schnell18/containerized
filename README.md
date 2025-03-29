@@ -18,6 +18,7 @@ smaller as possible. Most images are based on [alpine][2].
 | golang-runtime     | docker.io/schnell18        | 1.17-6-alpine              | golang application runtime image    |
 | golang-build       | docker.io/schnell18        | 1.18-3-alpine              | image to build golang application   |
 | golang-runtime     | docker.io/schnell18        | 1.18-6-alpine              | golang application runtime image    |
+| kafka              | quay.io/schnell18          | 3.2.1-1-alpine             | kafka image for local development   |
 
 ## Pre-requisite
 
