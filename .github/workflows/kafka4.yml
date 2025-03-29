@@ -23,12 +23,6 @@ jobs:
         sudo apt-get update
         sudo apt-get install -y qemu-user-static
 
-    - name: Get JRE runtime iamge tag
-      id: jre-rt-image-tag
-      run: |
-        echo -n ::set-output name=JRE_RT_IMG_TAG::
-        jq -r '.jreRuntimeImageTag' kafka4/version.json
-
     - name: Get kafka version
       id: kafka-version
       run: |
@@ -47,7 +41,6 @@ jobs:
       with:
         image: kafka
         build-args: |
-          JRE_RUNTIME_IMG_TAG=${{ steps.jre-rt-image-tag.outputs.JRE_RT_IMG_TAG }}
           KAFKA_VERSION=${{ steps.kafka-version.outputs.KAFKA_VERSION }}
         tags: ${{ steps.kafka-version.outputs.KAFKA_VERSION }}-${{ steps.build-number.outputs.BUILD_NO }}-alpine
         archs: amd64, arm64

@@ -1,6 +1,5 @@
 KAFKA_VERSION=$(jq -r '.kafkaVersion' version.json)
-JRE_RUNTIME_IMG_TAG=$(jq -r '.jreRuntimeImageTag' version.json)
-REV=1
+REV=$(jq -r '.build' version.json)
 
 REGISTRY=docker.io
 USER=schnell18
