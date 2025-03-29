@@ -27,19 +27,19 @@ jobs:
       id: jre-rt-image-tag
       run: |
         echo -n ::set-output name=JRE_RT_IMG_TAG::
-        jq -r '.jreRuntimeImageTag' kafka/version.json
+        jq -r '.jreRuntimeImageTag' kafka4/version.json
 
     - name: Get kafka version
       id: kafka-version
       run: |
         echo -n ::set-output name=KAFKA_VERSION::
-        jq -r '.kafkaVersion' kafka/version.json
+        jq -r '.kafkaVersion' kafka4/version.json
 
     - name: Get build number
       id: build-number
       run: |
         echo -n ::set-output name=BUILD_NO::
-        jq -r '.build' kafka/version.json
+        jq -r '.build' kafka4/version.json
 
     - name: Build Image
       id: build-image
@@ -51,8 +51,8 @@ jobs:
           KAFKA_VERSION=${{ steps.kafka-version.outputs.KAFKA_VERSION }}
         tags: ${{ steps.kafka-version.outputs.KAFKA_VERSION }}-${{ steps.build-number.outputs.BUILD_NO }}-alpine
         archs: amd64, arm64
-        context: kafka/
-        containerfiles: kafka/Dockerfile
+        context: kafka4/
+        containerfiles: kafka4/Dockerfile
 
     - name: Push To quay.io
       id: push-to-quay
